@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sakthibala G - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #818cf8;
+            --accent: #ec4899;
+            --accent-light: #f472b6;
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-tertiary: #334155;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-tertiary: #94a3b8;
+            --border: #475569;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, #1a0f2e 50%, var(--bg-primary) 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ============ HEADER & NAVIGATION ============ */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(100, 102, 241, 0.2);
+            z-index: 1000;
+            animation: slideDown 0.5s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* ============ HERO SECTION ============ */
+        .hero {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(99, 102, 241, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* ============ SECTIONS ============ */
+        section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: var(--text-tertiary);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* ============ ABOUT SECTION ============ */
+        .about {
+            background: rgba(30, 41, 59, 0.4);
+            border-radius: 20px;
+            padding: 4rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .about-card {
+            background: rgba(51, 65, 85, 0.4);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(100, 102, 241, 0.2);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .about-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            background: rgba(51, 65, 85, 0.6);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.15);
+        }
+
+        .about-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .about-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* ============ SKILLS SECTION ============ */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: rgba(51, 65, 85, 0.3);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(100, 102, 241, 0.15);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .skill-category:hover {
+            background: rgba(51, 65, 85, 0.5);
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 0;
+            gap: 1rem;
+        }
+
+        .skill-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            flex-shrink: 0;
+        }
+
+        .skill-item p {
+            color: var(--text-secondary);
+        }
+
+        /* ============ EDUCATION & EXPERIENCE ============ */
+        .timeline {
+            margin-top: 2rem;
+        }
+
+        .timeline-item {
+            padding: 2rem;
+            margin-bottom: 2rem;
+            background: rgba(51, 65, 85, 0.3);
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .timeline-item:hover {
+            background: rgba(51, 65, 85, 0.5);
+            border-left-color: var(--accent);
+            transform: translateX(10px);
+        }
+
+        .timeline-item h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .timeline-item .institution {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .date {
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-item p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* ============ PROJECTS SECTION ============ */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: rgba(51, 65, 85, 0.3);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(100, 102, 241, 0.15);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 50px rgba(99, 102, 241, 0.2);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            padding: 2rem;
+            color: white;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+        }
+
+        .project-header h3 {
+            font-size: 1.4rem;
+        }
+
+        .project-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--primary-light);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        /* ============ CONTACT SECTION ============ */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(51, 65, 85, 0.3);
+            border-radius: 12px;
+            border: 1px solid rgba(100, 102, 241, 0.15);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .contact-item:hover {
+            background: rgba(51, 65, 85, 0.5);
+            border-color: var(--primary);
+            transform: translateX(10px);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h3 {
+            color: var(--text-primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-details a {
+            color: var(--primary-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-details a:hover {
+            color: var(--accent);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            background: rgba(51, 65, 85, 0.4);
+            border: 1px solid rgba(100, 102, 241, 0.3);
+            color: var(--text-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            background: rgba(51, 65, 85, 0.6);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* ============ FOOTER ============ */
+        footer {
+            background: rgba(15, 23, 42, 0.8);
+            border-top: 1px solid rgba(100, 102, 241, 0.2);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.8rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(99, 102, 241, 0.2);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .social-icon:hover {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-color: transparent;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            color: var(--text-tertiary);
+            border-top: 1px solid rgba(100, 102, 241, 0.2);
+            padding-top: 2rem;
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 6rem 1rem 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            .about {
+                padding: 2rem;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-category {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <nav>
+            <div class="logo">Sakthibala.G</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Hi, I'm Sakthibala</h1>
+            <p>BE in Computer Science Engineering (Internet of Things)</p>
+            <p>Data Analytics Enthusiast | IoT Developer | Problem Solver</p>
+            <p style="color: var(--text-tertiary); font-size: 1rem; margin-top: 1.5rem;">Passionate about transforming data into actionable insights and building intelligent IoT solutions. Currently pursuing my degree at Paavai Engineering College with a CGPA of 8.00, I'm seeking opportunities to apply my skills in data analysis, visualization, and problem-solving.</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView()">Get In Touch</button>
+                <a href="#projects" class="btn btn-secondary">View My Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p class="section-subtitle">Engineering student passionate about IoT and data analytics</p>
+        
+        <div class="about-grid">
+            <div class="about-card">
+                <h3>Education</h3>
+                <p>Currently pursuing a BE in Computer Science Engineering (IoT) at Paavai Engineering College with a strong CGPA of 8.00. Completed HSC with 81% and SSLC with distinction.</p>
+            </div>
+            <div class="about-card">
+                <h3>Specialization</h3>
+                <p>Specialized in Internet of Things, Data Science, and AI. Passionate about developing intelligent solutions that combine hardware and software to solve real-world problems.</p>
+            </div>
+            <div class="about-card">
+                <h3>Career Goal</h3>
+                <p>Seeking a data analytics position where I can leverage my analytical skills, visualization expertise, and problem-solving abilities to drive informed business decisions.</p>
+            </div>
+            <div class="about-card">
+                <h3>Key Strengths</h3>
+                <p>Strong analytical mindset, quick learner, excellent communication, ability to work in teams, and passion for continuous learning and innovation in emerging technologies.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <p class="section-subtitle">Tools and technologies I work with</p>
+        
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Programming & Data</h3>
+                <div class="skill-item">
+                    <div class="skill-dot"></div>
+                    <p>Python</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-dot"></div>
+                    <p>Data Analysis & Visualization</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-dot"></div>
+                    <p>SQL & Databases</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-dot"></div>
+                    <p>Machine Learning Basics</p>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Office & Design Tools</h3>
+                <div class="skill-item">
+                    <div class="skill-dot"></div>
+                    <p>Microsoft Excel (Advanced)</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-dot"></div>
+                    <p>Microsoft Word</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-dot"></div>
+                    <p>PowerPoint</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-dot"></div>
+                    <p>Adobe Photoshop</p>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>IoT & Hardware</h3>
+                <div class="skill-item">
+                    <div class="skill-dot"></div>
+                    <p>Arduino & Embedded Systems</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-dot"></div>
+                    <p>IoT Sensors & Communication</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-dot"></div>
+                    <p>Cloud Platforms (AWS, Azure)</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-dot"></div>
+                    <p>Web Development Basics</p>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Soft Skills</h3>
+                <div class="skill-item">
+                    <div class="skill-dot"></div>
+                    <p>Leadership</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-dot"></div>
+                    <p>Decision Making</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-dot"></div>
+                    <p>Multi-tasking</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-dot"></div>
+                    <p>Communication</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section id="education">
+        <h2>Education & Experience</h2>
+        <p class="section-subtitle">My academic journey and professional development</p>
+        
+        <h3 style="color: var(--primary); margin-top: 2rem; margin-bottom: 1.5rem;">Education</h3>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Bachelor of Engineering in Internet of Things</h3>
+                <div class="institution">Paavai Engineering College, Namakkal</div>
+                <div class="date">2023 - 2027</div>
+                <p>Currently pursuing with a CGPA of 8.00. Specializing in IoT technologies, data analytics, and intelligent systems. Active participant in workshops and coding competitions.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>HSC (Higher Secondary Certificate)</h3>
+                <div class="institution">Dhava Amudham Matric Higher Secondary School, Hosur</div>
+                <div class="date">Completed 2023</div>
+                <p>Scored 81% in HSC examination. Strong foundation in mathematics and sciences with focus on analytical thinking.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>SSLC (Secondary School Leaving Certificate)</h3>
+                <div class="institution">Dhava Amudham Matric Higher Secondary School, Hosur</div>
+                <div class="date">Completed 2021</div>
+                <p>Completed SSLC with distinction, demonstrating consistent academic excellence and dedication to studies.</p>
+            </div>
+        </div>
+
+        <h3 style="color: var(--accent); margin-top: 3rem; margin-bottom: 1.5rem;">Professional Development</h3>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Data Science Internship with AI</h3>
+                <div class="institution">Novi Tech</div>
+                <div class="date">Recent</div>
+                <p>Intensive training in machine learning, AI algorithms, and data science methodologies. Hands-on experience with real-world datasets and model implementation.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>IoT Workshop</h3>
+                <div class="institution">Paavai Engineering College Workshop, Namakkal</div>
+                <div class="date">2024</div>
+                <p>Comprehensive workshop covering IoT architecture, sensor integration, and cloud connectivity. Practical experience with Arduino and IoT platforms.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Data Science Master Virtual Internship</h3>
+                <div class="institution">Edu Skills</div>
+                <div class="date">Completed</div>
+                <p>Virtual internship focused on advanced data analysis, statistical modeling, and real-world case studies in data science.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects">
+        <h2>Projects & Achievements</h2>
+        <p class="section-subtitle">Showcasing my practical work and contributions</p>
+        
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Blood Donation Website with IoT</h3>
+                </div>
+                <div class="project-content">
+                    <p>Developed a comprehensive blood donation platform integrated with IoT sensors for real-time inventory management. Features include donor registration, blood bank locator, and automated notifications using IoT technology.</p>
+                    <div class="project-tags">
+                        <span class="tag">IoT</span>
+                        <span class="tag">Web Dev</span>
+                        <span class="tag">Database</span>
+                        <span class="tag">Real-time</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Cloud Computing IoT Paper</h3>
+                </div>
+                <div class="project-content">
+                    <p>Research and presentation on cloud computing applications in IoT systems. Explored AWS and Azure integration with IoT devices, data processing, and analytics pipelines for scalable IoT solutions.</p>
+                    <div class="project-tags">
+                        <span class="tag">AWS</span>
+                        <span class="tag">Azure</span>
+                        <span class="tag">Research</span>
+                        <span class="tag">Cloud</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>GDSC 2024 Hackathon</h3>
+                </div>
+                <div class="project-content">
+                    <p>Participated in Google Developer Student Club hackathon 2024. Developed innovative solutions focusing on social impact and technological excellence. Collaborated with a team to build scalable applications.</p>
+                    <div class="project-tags">
+                        <span class="tag">Hackathon</span>
+                        <span class="tag">Innovation</span>
+                        <span class="tag">Teamwork</span>
+                        <span class="tag">Impact</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Data Analytics Portfolio</h3>
+                </div>
+                <div class="project-content">
+                    <p>Created comprehensive data analysis projects using Python, SQL, and visualization tools. Analyzed complex datasets, created interactive dashboards, and provided actionable business insights through data storytelling.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">Tableau</span>
+                        <span class="tag">Analytics</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Smart Sensor Network</h3>
+                </div>
+                <div class="project-content">
+                    <p>Designed and implemented a network of IoT sensors for environmental monitoring. Integrated Arduino, sensors, and cloud connectivity to collect and analyze environmental data in real-time.</p>
+                    <div class="project-tags">
+                        <span class="tag">Arduino</span>
+                        <span class="tag">Sensors</span>
+                        <span class="tag">IoT</span>
+                        <span class="tag">Monitoring</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>AI-Driven Predictive Model</h3>
+                </div>
+                <div class="project-content">
+                    <p>Developed machine learning models for predictive analytics. Implemented classification and regression algorithms to solve business problems with 85%+ accuracy rates.</p>
+                    <div class="project-tags">
+                        <span class="tag">ML</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">AI</span>
+                        <span class="tag">Analytics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <p class="section-subtitle">Let's connect and explore opportunities together</p>
+        
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">E</div>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <a href="/cdn-cgi/l/email-protection#3b485a504f5352595a575a0a0c0b0a090b0b0d7b5c565a525715585456"><span class="__cf_email__" data-cfemail="ec9f8d879884858e8d808ddddbdcdddedcdcdaac8b818d8580c28f8381">[email&#160;protected]</span></a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">P</div>
+                    <div class="contact-details">
+                        <h3>Phone</h3>
+                        <a href="tel:+919894322381">+91 98943 22381</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">L</div>
+                    <div class="contact-details">
+                        <h3>Location</h3>
+                        <p>66, Senguthar Street (vill,po)<br>Srimushnam(T/k), Cuddlore (D/T)<br>608703</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">W</div>
+                    <div class="contact-details">
+                        <h3>LinkedIn</h3>
+                        <a href="https://www.linkedin.com/in/sakthibala-g-9752b12a2" target="_blank">Visit Profile</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">C</div>
+                    <div class="contact-details">
+                        <h3>LeetCode</h3>
+                        <a href="https://leetcode.com/u/Sakthibala.G" target="_blank">View Solutions</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Send me a message</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" placeholder="Project Inquiry" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" placeholder="Your message here..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About</h4>
+                <p>BE CSE (IoT) student passionate about data analytics, machine learning, and intelligent IoT solutions.</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/sakthibala-g-9752b12a2" class="social-icon" title="LinkedIn">IN</a>
+                    <a href="https://leetcode.com/u/Sakthibala.G" class="social-icon" title="LeetCode">LC</a>
+                    <a href="/cdn-cgi/l/email-protection#a5d6c4ced1cdccc7c4c9c49492959497959593e5c2c8c4ccc98bc6cac8" class="social-icon" title="Email">@</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#education">Education</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>Services</h4>
+                <a href="#projects">Data Analytics</a>
+                <a href="#projects">IoT Solutions</a>
+                <a href="#projects">Web Development</a>
+                <a href="#projects">AI Solutions</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p>Email: <a href="/cdn-cgi/l/email-protection#7c0f1d170814151e1d101d4d4b4c4d4e4c4c4a3c1b111d1510521f1311"><span class="__cf_email__" data-cfemail="6714060c130f0e05060b06565057565557575127000a060e0b4904080a">[email&#160;protected]</span></a></p>
+                <p>Phone: <a href="tel:+919894322381">+91 98943 22381</a></p>
+                <p>Location: Cuddlore, Tamil Nadu</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Sakthibala G. All rights reserved. Designed & Developed with Excellence</p>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Navigation active link
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            document.querySelector('form').reset();
+        });
+
+        // Stagger animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries
